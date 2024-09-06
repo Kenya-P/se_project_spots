@@ -34,11 +34,13 @@
     border: none;
     background-color: transparent;
     color: #212121;
+    cursor: pointer;
     opacity: 40%;
 }
 
 .card__like-button:hover {
     color: #212121;
+    border: 2px;
 }
 
 @media screen and (max-width: 627px) {
