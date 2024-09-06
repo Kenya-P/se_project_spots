@@ -7,3 +7,11 @@
     padding: 50px 588px;
 
 }
+
+@media screen and (max-width: 627px) {
+    .footer {
+        padding: 108px 60px;
+        display: flex;
+        justify-content: center;
+    }
+}
