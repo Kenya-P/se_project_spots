@@ -1,3 +1,7 @@
+* {
+    outline: 1px solid red;
+}
+
 .page {
     background-color: #FCF5E5;
     min-height: 100vh;
