@@ -55,7 +55,7 @@
     display: flex;
     background-color: transparent;
     size: 16px;
-    line-height: 16px;
+    line-height: 1;
     font-weight: 500;
 
 }
@@ -107,6 +107,7 @@
     .profile__name {
         margin-bottom: 6px;
         font-size: 20px;
+        line-height: 1;
         max-width: 288px;
     }
 
