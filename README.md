@@ -12,5 +12,14 @@ All buttons have applied hover effects. The “edit profile” button’s defaul
 
 The new post button is a mock button to be available for the user to add new images to their profiles. Each image is limited to a width and height of 413px. Continuing the suggested design layout of the grid display function, positioning all images centered within the page and display all images in a row and column of 3 while viewing on a desktop. 
 
-If the webpage is accessed from other devices such as a tablet or mobile device. The display will slightly change from a row of 3 to 2 rows for a tablet depending on screen resolution. Also, a singular row for a mobile device. This feature is applied using an @media query with a max screen width of 627px and resizing the images to 288px. 
+If the webpage is accessed from other devices such as a tablet or mobile device. The display will slightly change from a row of 3 to 2 rows for a tablet depending on screen resolution. Also, a singular row for a mobile device. This feature is applied using an @media query with a max screen width of 627px and resizing the images to 288px.
+
+## Github pages link
+
+https://kenya-p.github.io/se_project_spots/
+
+
+### Loom video description of Project 3: Spots
+
+https://www.loom.com/share/ddc170d981034d81b6fbd2fd7a55cc4d?sid=4b1ad9f5-09b8-463c-a88a-bcea2c8ca192
  
