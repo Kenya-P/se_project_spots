@@ -11,3 +11,10 @@
     height: 26px;
     
 }
+
+@media screen and (max-width: 627px) {
+
+    .header {
+        margin-bottom: 20px;
+    }
+}
