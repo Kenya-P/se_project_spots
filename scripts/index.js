@@ -25,14 +25,23 @@ const initialCards = [
     },
 ];
 
-console.log(initalCards);
 
 const profileEditButton = document.querySelector(".profile__edit-button");
+const profileNameElement = document.querySelector(".profile__name");
+const profileDescriptionElement = document.querySelector(".profile__description");
+
+
 
 const editProfileModal = document.querySelector("#edit-profile-modal");
+const editProfileFormElement = editProfileModal.querySelector(".modal__form");
 const editProfileCloseButton = editProfileModal.querySelector(".modal__close-button");
+const editProfileNameInput = editProfileModal.querySelector("#name-input");
+const editProfileDescriptionElement = editProfileModal.querySelector("#description-input");
+
 
 function openModal () {
+    editProfileNameInput.value = profileNameElement.textContent;
+    editProfileDescriptionElement.value = profileDescriptionElement.textContent;
     editProfileModal.classList.add("modal__opened");
 }
 
@@ -40,6 +49,14 @@ function closeModal () {
     editProfileModal.classList.remove("modal__opened");
 }
 
-profileEditButton.addEventListener("click", openModal);
+function handleProfileFormSubmit(evt) {
+    evt.preventDefault();
 
+    profileNameElement.textContent = editProfileNameInput.value;
+    profileDescriptionElement.textContent = editProfileDescriptionElement.value;
+    closeModal();
+}
+
+profileEditButton.addEventListener("click", openModal);
 editProfileCloseButton.addEventListener("click", closeModal);
+editProfileFormElement.addEventListener("submit", handleProfileFormSubmit);
