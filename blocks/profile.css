@@ -63,6 +63,8 @@
 
 .profile__edit-button:hover {
     color: #212121;
+    cursor: url(../images/pointer.svg), pointer;
+
 }
 
 .profile__add-button {
@@ -83,6 +85,8 @@
 
 .profile__add-button:hover {
     background-color: rgba(33, 33, 33, 0.8);
+    cursor: url(../images/pointer.svg), pointer;
+
 }
 
 @media screen and (max-width: 627px) {
