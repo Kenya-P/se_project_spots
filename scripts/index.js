@@ -81,18 +81,26 @@ function handleProfileFormSubmit(evt) {
     closeModal(editProfileModal);
 }
 
-function handlerAddCardSubmit(evt) {
+function handleAddCardSubmit(evt) {
     evt.preventDefault();
 
     //To Do make image appear
 
-    const inputValue = { name: cardNameElement.value, link: cardImageElement.value};
+    const inputValue = { 
+        name: cardCaptionInput.value, 
+        link: cardLinkInput.value
+    };
+
     const cardEl = getCardElement(inputValue);
 
-    //To Do - make card appear first
-    cardList.append(cardEl);
+
+
+    cardList.prepend(cardEl);
+   
     closeModal(cardModal);
+    evt.target.reset();
 }
+
 
 profileEditButton.addEventListener("click", () => {
     editProfileNameInput.value = profileNameElement.textContent;
@@ -112,7 +120,7 @@ cardModalCloseButton.addEventListener("click", () => {
 
 
 editProfileFormElement.addEventListener("submit", handleProfileFormSubmit);
-cardFormElement.addEventListener("submit", handlerAddCardSubmit);
+cardFormElement.addEventListener("submit", handleAddCardSubmit);
 
 
 
