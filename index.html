@@ -33,6 +33,10 @@
             <ul class="cards__list">
                 <template id="card-template">
                     <li class="card">
+                        <button
+                        type="button"
+                        class="card__delete-button"
+                        ></button>
                         <img 
                         class="card__image"
                         src="" 
@@ -42,7 +46,7 @@
                             <h2 class="card__title"></h2>
                             <button  
                             type="button" 
-                            class="card__like-button"
+                            class="card__like-button card__like-button_liked"
                             ></button>
                         </div>
                     </li>
@@ -55,7 +59,7 @@
     </footer>
     <div class="modal" id="edit-profile-modal">
         <div class="modal__container">
-            <button class="modal__close-button"></button>
+            <button type="button" class="modal__close-button"></button>
             <h2 class="modal__title">Edit profile</h2>
             <form name="edit-profile" id="edit-profile" class="modal__form">
                 <label class="modal__label">
@@ -88,6 +92,17 @@
         </div>
     </div>
    </div> 
+<div class="modal" id="preview-modal">
+    <div class="modal__content modal__content_type_preview">
+        <button type="button" class="modal__close modal__close_type_preview"></button>
+        <img 
+        class="modal__image"
+        src="" 
+        alt="" />
+        <p class="modal__caption"></p>
+
+    </div>
+</div>
    <script defer src="./scripts/index.js"></script>
 </body>
 </html>

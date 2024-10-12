@@ -45,6 +45,11 @@ const cardModalCloseButton = cardModal.querySelector(".modal__close-button");
 const cardLinkInput = cardModal.querySelector("#card-link-input");
 const cardCaptionInput = cardModal.querySelector("#card-caption-input");
 
+const previewModal = document.querySelector("#preview-modal");
+const previewModalImageElement = previewModal.querySelector(".modal__image");
+const previewModalCaptionElement = previewModal.querySelector(".modal__caption");
+const previewModalCloseButton = previewModal.querySelector(".modal__close_type_preview");
+
 //Card elements
 const cardTemplate = document.querySelector("#card-template");
 const cardList = document.querySelector(".cards__list");
@@ -56,11 +61,35 @@ console.log(data);
     
     const cardNameElement = cardElement.querySelector(".card__title");
     const cardImageElement = cardElement.querySelector(".card__image");
+    const cardLikeButton = cardElement.querySelector(".card__like-button");
+    const cardDeleteButton = cardElement.querySelector(".card__delete-button");
+
 
     cardImageElement.setAttribute("src", data.link);
     cardImageElement.setAttribute("alt", data.name);
-
     cardNameElement.textContent = data.name;
+
+    cardLikeButton.addEventListener("click", () => {
+        cardLikeButton.classList.toggle("card__like-button_liked");
+    });
+
+    cardImageElement.addEventListener("click", () => {
+        openModal(previewModal);
+
+        previewModalImageElement.src = data.link;
+        previewModalImageElement.alt = data.name;
+        previewModalCaptionElement.textContent = data.name;
+
+        cardImageElement.classList.toggle("modal__content_type_preview");
+    });
+
+    previewModalCloseButton.addEventListener("click", () => {
+        closeModal(previewModal)
+    });
+
+    cardDeleteButton.addEventListener("click", () => {
+        cardDeleteButton.classList.toggle("card__delete-button");
+    });
 
     return cardElement;
 }
@@ -84,16 +113,12 @@ function handleProfileFormSubmit(evt) {
 function handleAddCardSubmit(evt) {
     evt.preventDefault();
 
-    //To Do make image appear
-
     const inputValue = { 
         name: cardCaptionInput.value, 
         link: cardLinkInput.value
     };
 
     const cardEl = getCardElement(inputValue);
-
-
 
     cardList.prepend(cardEl);
    
