@@ -74,7 +74,10 @@ console.log(data);
     cardNameElement.textContent = data.name;
 
     cardLikeButton.addEventListener("click", () => {
+
+        const likeButton = cardElement.querySelector(".card__like-button");
         cardLikeButton.classList.toggle("card__like-button_liked");
+       
     });
 
     cardImageElement.addEventListener("click", () => {
@@ -92,21 +95,16 @@ console.log(data);
     });
 
     cardDeleteButton.addEventListener("click", () => {
-        cardDeleteButton.addEventListener("click", () => {
 
-            const cardDelete = cardDeleteButton.closest(".card");
+        const cardDelete = cardDeleteButton.closest(".card");
 
-            if (cardDelete) {
-              console.log("Card found and will be deleted");
-              cardDelete.remove();
-            } else {
-              console.log("Card not found");
-            }
-          });
+        cardDelete.remove();
+        
     });
 
     return cardElement;
 }
+
 
 function openModal (modal) {
     modal.classList.add("modal_opened");
