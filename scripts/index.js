@@ -23,6 +23,10 @@ const initialCards = [
         name:"Mountain house", 
         link:"https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg"
     },
+    {
+        name:"Golden Gate Bridge",
+        link:"https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg"
+    },
 ];
 
 //Profile Elements
@@ -88,7 +92,17 @@ console.log(data);
     });
 
     cardDeleteButton.addEventListener("click", () => {
-        cardDeleteButton.classList.toggle("card__delete-button");
+        cardDeleteButton.addEventListener("click", () => {
+
+            const cardDelete = cardDeleteButton.closest(".card");
+
+            if (cardDelete) {
+              console.log("Card found and will be deleted");
+              cardDelete.remove();
+            } else {
+              console.log("Card not found");
+            }
+          });
     });
 
     return cardElement;
