@@ -52,7 +52,7 @@ const cardCaptionInput = cardModal.querySelector("#card-caption-input");
 const previewModal = document.querySelector("#preview-modal");
 const previewModalImageElement = previewModal.querySelector(".modal__image");
 const previewModalCaptionElement = previewModal.querySelector(".modal__caption");
-const previewModalCloseButton = previewModal.querySelector(".modal__close_type_preview");
+const previewModalCloseButton = previewModal.querySelector(".modal__close-button");
 
 //Card elements
 const cardTemplate = document.querySelector("#card-template");
@@ -75,8 +75,8 @@ console.log(data);
 
     cardLikeButton.addEventListener("click", () => {
 
-        const likeButton = cardElement.querySelector(".card__like-button");
-        cardLikeButton.classList.toggle("card__like-button_liked");
+       const likeButton = cardElement.querySelector(".card__like-button");
+       cardLikeButton.classList.toggle("card__like-button_liked");
        
     });
 
@@ -86,13 +86,9 @@ console.log(data);
         previewModalImageElement.src = data.link;
         previewModalImageElement.alt = data.name;
         previewModalCaptionElement.textContent = data.name;
+        });
 
-        cardImageElement.classList.toggle("modal__content_type_preview");
-    });
 
-    previewModalCloseButton.addEventListener("click", () => {
-        closeModal(previewModal)
-    });
 
     cardDeleteButton.addEventListener("click", () => {
 
@@ -103,6 +99,7 @@ console.log(data);
     });
 
     return cardElement;
+
 }
 
 
@@ -144,6 +141,7 @@ profileEditButton.addEventListener("click", () => {
     editProfileDescriptionElement.value = profileDescriptionElement.textContent;
     openModal(editProfileModal);
 });
+
 editProfileCloseButton.addEventListener("click", () => {
     closeModal(editProfileModal);
 });
@@ -152,13 +150,16 @@ cardAddButton.addEventListener("click", () => {
     openModal(cardModal);
 });
 cardModalCloseButton.addEventListener("click", () => {
-    closeModal(cardModal);
+     closeModal(cardModal);
 });
+
+previewModalCloseButton.addEventListener("click", () => {
+            closeModal(previewModal);
+        });
 
 
 editProfileFormElement.addEventListener("submit", handleProfileFormSubmit);
 cardFormElement.addEventListener("submit", handleAddCardSubmit);
-
 
 
 initialCards.forEach((item) => {
