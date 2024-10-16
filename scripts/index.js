@@ -72,31 +72,25 @@ console.log(data);
     cardImageElement.setAttribute("src", data.link);
     cardImageElement.setAttribute("alt", data.name);
     cardNameElement.textContent = data.name;
-
-    cardLikeButton.addEventListener("click", () => {
-
-       const likeButton = cardElement.querySelector(".card__like-button");
-       cardLikeButton.classList.toggle("card__like-button_liked");
-       
-    });
-
+    
     cardImageElement.addEventListener("click", () => {
         openModal(previewModal);
 
         previewModalImageElement.src = data.link;
         previewModalImageElement.alt = data.name;
         previewModalCaptionElement.textContent = data.name;
-        });
+    });
 
-
+    cardLikeButton.addEventListener("click", () => {
+        cardLikeButton.classList.toggle("card__like-button_liked");
+    });
 
     cardDeleteButton.addEventListener("click", () => {
 
         const cardDelete = cardDeleteButton.closest(".card");
 
         cardDelete.remove();
-        
-    });
+    }); 
 
     return cardElement;
 
@@ -154,8 +148,8 @@ cardModalCloseButton.addEventListener("click", () => {
 });
 
 previewModalCloseButton.addEventListener("click", () => {
-            closeModal(previewModal);
-        });
+    closeModal(previewModal);
+});
 
 
 editProfileFormElement.addEventListener("submit", handleProfileFormSubmit);
