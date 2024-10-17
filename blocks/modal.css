@@ -47,8 +47,7 @@
 }
 
 .modal__caption {
-    width: 198px;
-    height: 27px;
+    width: 135px;
     border-radius: 8px;
     background-color: rgba(33, 33, 33, 1);
     color: #fff;
@@ -60,6 +59,7 @@
     line-height: 1.2;
     text-overflow: ellipsis;
     overflow: hidden;
+    white-space: nowrap;
 }
 
 .modal__close-button {
@@ -163,7 +163,7 @@
     }
 
     .modal__caption {
-        max-width: 175px;
+        width: 175px;
         font-size: 16px;
         line-height: 0.8;
         text-overflow: ellipsis;
@@ -183,8 +183,9 @@
     }
 
     .modal__close-button {
-        top: 12px;
-        right: 12px;
+        top: -41px;
+        left: 264px;
+        position: absolute;
     }
 
     .modal__label {
