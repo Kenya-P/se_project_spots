@@ -172,7 +172,7 @@
 
     .modal__close-button {
         top: 12px;
-        left: 248px;
+        right: 12px;
     }
 
     .modal__title {
@@ -184,7 +184,7 @@
 
     .modal__close-button_preview {
         top: -41px;
-        left: 264px;
+        left: 248px;
         position: absolute;
     }
 
