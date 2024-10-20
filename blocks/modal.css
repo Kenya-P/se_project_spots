@@ -168,6 +168,7 @@
         line-height: 0.8;
         text-overflow: ellipsis;
         overflow: hidden;
+        text-align: center;
     }
 
     .modal__close-button {
