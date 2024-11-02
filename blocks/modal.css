@@ -124,6 +124,19 @@
     color: #212121;    
 }
 
+.modal__error {
+    display: block;
+    color: rgba(255, 0, 0, 0.7);
+    font-family: Poppins, "Arial", "sans-serif";
+    font-size: 16px;
+    line-height: 1.1;
+    font-weight: 500;
+}
+
+.modal__input_type_error {
+    border: 1px solid rgba(255, 0, 0, 0.6);
+}
+
 .modal__input:hover {
     border: 1px solid rgba(33, 33, 33, 1);
     cursor: url(../images/pointer.svg), pointer;
@@ -143,7 +156,15 @@
 .modal__submit-button:hover {
     background-color: rgba(33, 33, 33, 0.8);
     cursor: url(../images/pointer.svg), pointer;
+}
 
+.modal__submit-button-disabled {
+    background-color: rgba(33, 33, 33, 1);
+    opacity: 50%;
+    font-family: Poppins, "Arial", "sans-serif";
+    font-size: 16px;
+    line-height: 1;
+    color: rgba(252, 245, 229, 1);
 }
 
 @media screen and (max-width: 627px) {
