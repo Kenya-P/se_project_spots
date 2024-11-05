@@ -29,6 +29,10 @@ const initialCards = [
     },
 ];
 
+const modalElements = document.querySelectorAll(".modal");
+const modalWindow = document.querySelectorAll(".modal__content_type_preview");
+
+
 //Profile Elements
 const profileEditButton = document.querySelector(".profile__edit-button");
 const cardAddButton = document.querySelector(".profile__add-button");
@@ -45,7 +49,7 @@ const editProfileDescriptionElement = editProfileModal.querySelector("#descripti
 
 const cardModal = document.querySelector("#add-card-modal");
 const cardFormElement = cardModal.querySelector(".modal__form");
-const cardSubmitButton = cardModal.querySelector(".modal__button");
+const cardSubmitButton = cardModal.querySelector(".modal__submit-button");
 const cardModalCloseButton = cardModal.querySelector(".modal__close-button");
 const cardLinkInput = cardModal.querySelector("#card-link-input");
 const cardCaptionInput = cardModal.querySelector("#card-caption-input");
@@ -131,11 +135,10 @@ function handleAddCardSubmit(evt) {
     closeModal(cardModal);
 }
 
-
 profileEditButton.addEventListener("click", () => {
     editProfileNameInput.value = profileNameElement.textContent;
     editProfileDescriptionElement.value = profileDescriptionElement.textContent;
-    resetValidation(settings, editForm, [editProfileNameInput, editProfileDescriptionElement]);
+   // resetValidation(editProfileFormElement, [editProfileNameInput, editProfileDescriptionElement]);
     openModal(editProfileModal);
 });
 
@@ -154,9 +157,34 @@ previewModalCloseButton.addEventListener("click", () => {
     closeModal(previewModal);
 });
 
+modalElements.forEach(modal => {
+    modal.addEventListener("mousedown", (evt) => {
+      if (evt.target.classList.contains("modal")) {
+        closeModal(modal);
+      }
+    });
+    document.addEventListener("keydown", (evt) => {
+      if (evt.key === "Escape") {
+        closeModal(modal);
+      }
+    });
+  });
+
+function closePopUp(evt) {
+    if (evt.key === "Escape") {
+      closeModal(modal);
+    };
+    document.removeEventListener("keydown", closePopUp);
+  };
+  
+  modalElements.forEach(document => {
+    document.addEventListener("keydown", closePopUp);
+  });
+
 
 editProfileFormElement.addEventListener("submit", handleProfileFormSubmit);
 cardFormElement.addEventListener("submit", handleAddCardSubmit);
+
 
 
 initialCards.forEach((item) => {
