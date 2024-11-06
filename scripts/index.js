@@ -138,8 +138,13 @@ function handleAddCardSubmit(evt) {
 profileEditButton.addEventListener("click", () => {
     editProfileNameInput.value = profileNameElement.textContent;
     editProfileDescriptionElement.value = profileDescriptionElement.textContent;
-   // resetValidation(editProfileFormElement, [editProfileNameInput, editProfileDescriptionElement]);
-    openModal(editProfileModal);
+    resetValidation(
+        editProfileFormElement, 
+        [editProfileNameInput, editProfileDescriptionElement], 
+        {
+            inputErrorClass: ".modal__input_type_error"
+        }
+    );    openModal(editProfileModal);
 });
 
 editProfileCloseButton.addEventListener("click", () => {

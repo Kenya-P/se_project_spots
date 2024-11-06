@@ -52,7 +52,7 @@ const disabledButton = (buttonElement) => {
     buttonElement.disabled = true;
 };
 
-const resetValidation = (formElement, inputList, settings) => {
+const resetValidation = (formElement, inputList, settings) => { 
     inputList.forEach((input) => {
         hideInputError(formElement, input, settings);
     });
