@@ -37,6 +37,7 @@
     border: none;
     background-image: url(../images/like.svg);
     background-color: transparent;
+    background-repeat: no-repeat;
     color: rgba(33, 33, 33, 0.667);
     cursor: url(../images/pointer.svg), pointer;
     opacity: 40%;

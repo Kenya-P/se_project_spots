@@ -30,7 +30,7 @@ const initialCards = [
 ];
 
 const modalElements = document.querySelectorAll(".modal");
-const modalWindow = document.querySelectorAll(".modal__content_type_preview");
+//const modalWindow = document.querySelectorAll(".modal__content_type_preview");
 
 
 //Profile Elements
@@ -92,7 +92,7 @@ console.log(data);
 
     cardDeleteButton.addEventListener("click", () => {
 
-        const cardDelete = cardDeleteButton.closest(".card");
+        //const cardDelete = cardDeleteButton.closest(".card");
 
         cardDelete.remove();
     }); 
@@ -139,16 +139,25 @@ profileEditButton.addEventListener("click", () => {
     editProfileNameInput.value = profileNameElement.textContent;
     editProfileDescriptionElement.value = profileDescriptionElement.textContent;
     resetValidation(
-        editProfileFormElement, 
-        [editProfileNameInput, editProfileDescriptionElement], 
-        {
-            inputErrorClass: ".modal__input_type_error"
-        }
-    );    openModal(editProfileModal);
+        editProfileFormElement,
+        [editProfileNameInput, editProfileDescriptionElement],
+        settings
+      );   
+    openModal(editProfileModal);
 });
 
-editProfileCloseButton.addEventListener("click", () => {
+/*editProfileCloseButton.addEventListener("click", () => {
     closeModal(editProfileModal);
+});*/
+
+// Find all close buttons
+const closeButtons = document.querySelectorAll('.modal__close');
+
+closeButtons.forEach((button) => {
+  // Find the closest popup only once
+  const popup = button.closest('.modal');
+  // Set the listener
+  button.addEventListener('click', () => closePopup(popup));
 });
 
 cardAddButton.addEventListener("click", () => {
@@ -164,7 +173,7 @@ previewModalCloseButton.addEventListener("click", () => {
 
 modalElements.forEach(modal => {
     modal.addEventListener("mousedown", (evt) => {
-      if (evt.target.classList.contains("modal")) {
+      if (evt.target.classList.contains("modal__form")) {
         closeModal(modal);
       }
     });
