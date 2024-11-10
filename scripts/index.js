@@ -30,7 +30,6 @@ const initialCards = [
 ];
 
 const modalElements = document.querySelectorAll(".modal");
-//const modalWindow = document.querySelectorAll(".modal__content_type_preview");
 
 
 //Profile Elements
@@ -91,10 +90,7 @@ console.log(data);
     });
 
     cardDeleteButton.addEventListener("click", () => {
-
-        //const cardDelete = cardDeleteButton.closest(".card");
-
-        cardDelete.remove();
+        cardElement.remove();
     }); 
 
     return cardElement;
@@ -141,23 +137,16 @@ profileEditButton.addEventListener("click", () => {
     resetValidation(
         editProfileFormElement,
         [editProfileNameInput, editProfileDescriptionElement],
-        settings
-      );   
+        settings,
+      );
     openModal(editProfileModal);
 });
 
-/*editProfileCloseButton.addEventListener("click", () => {
-    closeModal(editProfileModal);
-});*/
-
-// Find all close buttons
-const closeButtons = document.querySelectorAll('.modal__close');
+const closeButtons = document.querySelectorAll('.modal__close-button');
 
 closeButtons.forEach((button) => {
-  // Find the closest popup only once
   const popup = button.closest('.modal');
-  // Set the listener
-  button.addEventListener('click', () => closePopup(popup));
+  button.addEventListener('click', () => closeModal(popup));
 });
 
 cardAddButton.addEventListener("click", () => {
@@ -173,7 +162,7 @@ previewModalCloseButton.addEventListener("click", () => {
 
 modalElements.forEach(modal => {
     modal.addEventListener("mousedown", (evt) => {
-      if (evt.target.classList.contains("modal__form")) {
+      if (evt.target.classList.contains("modal")) {
         closeModal(modal);
       }
     });
@@ -181,10 +170,10 @@ modalElements.forEach(modal => {
       if (evt.key === "Escape") {
         closeModal(modal);
       }
-    });
+    }); 
   });
 
-function closePopUp(evt) {
+function closePopUp(modal) {
     if (evt.key === "Escape") {
       closeModal(modal);
     };
@@ -192,7 +181,12 @@ function closePopUp(evt) {
   };
   
   modalElements.forEach(document => {
-    document.addEventListener("keydown", closePopUp);
+   if (document.addEventListener("keydown", closePopUp)) {
+        closeModal(modal);
+   } else {
+    document.removeEventListener("keydown", closePopUp)
+   }
+
   });
 
 
@@ -200,8 +194,8 @@ editProfileFormElement.addEventListener("submit", handleProfileFormSubmit);
 cardFormElement.addEventListener("submit", handleAddCardSubmit);
 
 
-
 initialCards.forEach((item) => {
     const cardEl = getCardElement(item);
     cardList.append(cardEl);
+
 });

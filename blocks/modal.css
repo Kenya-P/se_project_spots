@@ -158,7 +158,7 @@
     cursor: url(../images/pointer.svg), pointer;
 }
 
-.modal__submit-button-disabled {
+.modal__submit-button_disabled {
     background-color: rgba(33, 33, 33, 1);
     opacity: 50%;
     font-family: Poppins, "Arial", "sans-serif";
