@@ -127,7 +127,7 @@ function handleAddCardSubmit(evt) {
     cardList.prepend(cardEl);
     evt.target.reset();
 
-    disabledButton(cardSubmitButton, settings);
+    disableButton(cardSubmitButton, settings);
     closeModal(cardModal);
 }
 
@@ -152,9 +152,6 @@ closeButtons.forEach((button) => {
 cardAddButton.addEventListener("click", () => {
     openModal(cardModal);
 });
-cardModalCloseButton.addEventListener("click", () => {
-     closeModal(cardModal);
-});
 
 previewModalCloseButton.addEventListener("click", () => {
     closeModal(previewModal);
@@ -168,7 +165,7 @@ modalElements.forEach(modal => {
     });
     document.addEventListener("keydown", (evt) => {
       if (evt.key === "Escape") {
-        closeModal(modal);
+        modalElements.forEach(modal => closeModal(modal));
       }
     }); 
   });
@@ -177,16 +174,16 @@ function closePopUp(modal) {
     if (evt.key === "Escape") {
       closeModal(modal);
     };
-    document.removeEventListener("keydown", closePopUp);
+    modal.removeEventListener("Escape", closePopUp);
   };
   
-  modalElements.forEach(document => {
-   if (document.addEventListener("keydown", closePopUp)) {
+  modalElements.forEach(modal => {
+  
+    modal.addEventListener("keydown", (evt) => {
+      if (evt.target.classList.contains("modal")) {
         closeModal(modal);
-   } else {
-    document.removeEventListener("keydown", closePopUp)
-   }
-
+      }
+    });
   });
 
 
