@@ -100,10 +100,12 @@ console.log(data);
 
 function openModal (modal) {
     modal.classList.add("modal_opened");
+    document.addEventListener("keydown", handleEscape);
 }
 
 function closeModal (modal) {
     modal.classList.remove("modal_opened");
+    document.removeEventListener("keydown", handleEscape);
 }
 
 function handleProfileFormSubmit(evt) {
@@ -153,38 +155,11 @@ cardAddButton.addEventListener("click", () => {
     openModal(cardModal);
 });
 
-previewModalCloseButton.addEventListener("click", () => {
-    closeModal(previewModal);
-});
-
-modalElements.forEach(modal => {
-    modal.addEventListener("mousedown", (evt) => {
-      if (evt.target.classList.contains("modal")) {
-        closeModal(modal);
-      }
-    });
-    document.addEventListener("keydown", (evt) => {
-      if (evt.key === "Escape") {
-        modalElements.forEach(modal => closeModal(modal));
-      }
-    }); 
-  });
-
-function closePopUp(modal) {
+function handleEscape(evt) {
     if (evt.key === "Escape") {
-      closeModal(modal);
-    };
-    modal.removeEventListener("Escape", closePopUp);
+        const openedPopUp = document.querySelector(".modal_opened");
+    }
   };
-  
-  modalElements.forEach(modal => {
-  
-    modal.addEventListener("keydown", (evt) => {
-      if (evt.target.classList.contains("modal")) {
-        closeModal(modal);
-      }
-    });
-  });
 
 
 editProfileFormElement.addEventListener("submit", handleProfileFormSubmit);
