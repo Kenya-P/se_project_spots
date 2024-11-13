@@ -158,8 +158,17 @@ cardAddButton.addEventListener("click", () => {
 function handleEscape(evt) {
     if (evt.key === "Escape") {
         const openedPopUp = document.querySelector(".modal_opened");
+        closeModal(openedPopUp);
     }
   };
+
+  modalElements.forEach(modal => {
+    modal.addEventListener("mousedown", (evt) => {
+      if (evt.target.classList.contains("modal")) {
+        closeModal(modal);
+      }
+    });
+  });
 
 
 editProfileFormElement.addEventListener("submit", handleProfileFormSubmit);
