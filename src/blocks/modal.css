@@ -167,6 +167,49 @@
     color: rgba(252, 245, 229, 1);
 }
 
+.modal__options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.modal__delete-button {
+    width: 159px;
+    height: 52px;
+    background-color: #FF6565;
+    color: #212121;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease-in-out;
+    font-family: Poppins, "Arial", "sans-serif";
+    font-weight: 500;
+    line-height: 1;
+    font-size: 16px;
+}
+
+.modal__delete-button:hover {
+    background-color: #FF3333;
+    cursor: url(../images/pointer.svg), pointer;
+}
+
+.modal__cancel-button {
+    width: 159px;
+    height: 52px;
+    border: 1px solid #212121;
+    gap: 8px;
+    border-radius: 8px;
+    font-family: Poppins, "Arial", "sans-serif";
+    font-weight: 500;
+    line-height: 1;
+    font-size: 16px;  
+}
+
+.modal__cancel-button:hover {
+    background-color: #212121;
+    color: #fff;
+    cursor: url(../images/pointer.svg), pointer;
+}
+
 @media screen and (max-width: 627px) {
 
     .modal {
@@ -216,5 +259,21 @@
 
     .modal__submit-button {
         width: 100%;
+    }
+
+    .modal__options {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .modal__delete-button {
+        background-color: #FF6565;
+        color: #212121;
+    }
+    
+    .modal__cancel-button {
+        border: 1px solid #212121;
+
     }
 }
