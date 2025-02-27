@@ -7,7 +7,8 @@
 
 .profile__avatar-container {
     position: relative;
-    display: inline-block;
+    display: flex;
+    margin-right: 20px;
 }
 
 
@@ -19,27 +20,20 @@
 .profile__avatar-button {
     position: absolute;
     display: flex;
-    gap: 8px;
-    margin: 0;
+    width: 100%;
+    height: 100%;
     align-items: flex-end;
     justify-content: center;
+    visibility: hidden;
+    background: transparent;
     background-color: rgba(0, 0, 0, 0.5);
     border: none;
-    color: #FFFFFF;
-    font-weight: 500;
-    line-height: 1;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    color: #fff;
+    gap: 8px;
 }
 
 .profile__avatar-container:hover .profile__avatar-button {
     visibility: visible;
-    opacity: 1;
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
 }
 
 .profile__avatar-button::after {
@@ -48,8 +42,6 @@
 
 .profile__avatar-button:hover {
     cursor: url(../images/pointer.svg), pointer;
-    /* width: 35px;
-    height: 44px; */
 }
 
 .profile__avatar {
@@ -149,15 +141,19 @@
 
     .profile__avatar-button {
         visibility: visible;
+        background: transparent;
         background-color: rgba(33, 33, 33, 0.6);
+        width: 24px;
+        height: 24px;
         border-radius: 6px;
-        padding: 4px;
-        gap: 8px;
         top: 52px;
         left: 52px;
-        width: 23px;
-        height: 23px;
-        padding: 8px 0;
+    }
+
+    .profile__pencil-icon{
+        padding: 4px;
+        position: absolute;
+
     }
 
     .profile__avatar-button::after {

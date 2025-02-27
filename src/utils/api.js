@@ -7,7 +7,7 @@ class Api {
     getAppInfo() {
       return Promise.all([
             this.getUserInfo(),  // Fetch user information
-            this.getAllCards()   // Fetch all cards
+            this.getInitialCards()   // Fetch all cards
           ]);
       }
       
@@ -44,14 +44,6 @@ class Api {
       }).then(this._handleResponse);
     }
     
-
-    getAllCards() {
-      return fetch(`${this._baseUrl}/cards`, {
-        method: "GET",
-        headers: this._headers
-      }).then(this._handleResponse);  
-    }
-
     createCard({name, link}) {
     return fetch(`${this._baseUrl}/cards`, {
             method: 'POST',
