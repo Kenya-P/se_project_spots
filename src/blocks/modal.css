@@ -180,6 +180,7 @@
     color: #212121;
     font-size: 16px;
     border-radius: 8px;
+    border: none;
     transition: background-color 0.3s ease-in-out;
     font-family: Poppins, "Arial", "sans-serif";
     font-weight: 500;
@@ -208,6 +209,16 @@
     background-color: #212121;
     color: #fff;
     cursor: url(../images/pointer.svg), pointer;
+}
+
+.modal__close-button_delete {
+    background-image: url(../images/previewclose.svg);
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 0;
+    right: -52.5px;
+    opacity: 1;
 }
 
 @media screen and (max-width: 627px) {
@@ -275,5 +286,10 @@
     .modal__cancel-button {
         border: 1px solid #212121;
 
+    }
+
+    .modal__close-button_delete {
+        top: -56px;
+        right: 16px;
     }
 }

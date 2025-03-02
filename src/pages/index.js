@@ -177,7 +177,7 @@ function handleAddCardSubmit(evt) {
 
   const cardSubmitButton = evt.submitter;
   cardSubmitButton.disabled = true;
-  setButtonText(cardSubmitButton);
+  setButtonText(cardSubmitButton, true, "Saving...");
 
   const inputValue = { 
       name: cardCaptionInput.value, 
@@ -198,7 +198,7 @@ function handleAddCardSubmit(evt) {
         cardSubmitButton.disabled = false;
       })
       .finally(() => {
-        setButtonText(cardSubmitButton, false);
+        setButtonText(cardSubmitButton, false, "saving...", "Save");
       });
 }
 
@@ -230,8 +230,8 @@ function handleDeleteSubmit(evt) {
   const submitButton = evt.submitter;
   setButtonText(submitButton, true, "Deleting...");
 
-  api
-    .deleteCard(selectedCardId)
+
+  api.deleteCard(selectedCardId)
     .then(() => {
       selectedCard.remove();
       closeModal(cardDeleteModal);

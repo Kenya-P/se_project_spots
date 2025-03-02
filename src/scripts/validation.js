@@ -1,7 +1,7 @@
 const settings = {
     formSelector: ".modal__form",
     inputSelector: ".modal__input",
-    submitButtonSelector: ".modal__submit-button, .modal__delete-button",
+    submitButtonSelector: ".modal__submit-button",
     inactiveButtonClass: "modal__submit-button_disabled",
     inputErrorClass: "modal__input_type_error",
     errorClass: "modal__error"
@@ -66,7 +66,7 @@ const resetValidation = (formElement, inputList, settings) => {
 
     const setEventListeners = (formElement, config) => {
     const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
-    const buttonElement = formElement.querySelector(config.submitButtonSelector);
+    const buttonElement = formElement.querySelector(config.submitButtonSelector) || formElement.querySelector(".modal__delete-button");
 
     toggleButtonState(inputList, buttonElement, config);
   
