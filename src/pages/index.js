@@ -251,16 +251,7 @@ function handleDeleteCard(cardElement, cardId) {
 
   const cancelButton = cardDeleteModal.querySelector(".modal__cancel-button");
 
-  if (!cancelButton) {
-    console.error("Cancel button not found!");
-    return;
-}
-
-  cancelButton.replaceWith(cancelButton.cloneNode(true));
-
-  const newCancelButton = cardDeleteModal.querySelector(".modal__cancel-button");
-
-  newCancelButton.addEventListener("click", () => {
+  cancelButton.addEventListener("click", () => {
       closeModal(cardDeleteModal);
   });
 
