@@ -43,13 +43,15 @@ const hasInvalidInput = (inputList) => {
 };
 
 const toggleButtonState = (inputList, buttonElement, config) => {
-    if (hasInvalidInput(inputList, config)) {
-      
+
+    if (!inputList || inputList.length === 0) {
+      return;
+    }
+    if (hasInvalidInput(inputList)) {
       disableButton(buttonElement, config);
     } else {
-        buttonElement.disabled = false;
-        
-        buttonElement.classList.remove(config.inactiveButtonClass);
+      buttonElement.disabled = false;
+      buttonElement.classList.remove(config.inactiveButtonClass);
     }
 };
 
@@ -66,7 +68,7 @@ const resetValidation = (formElement, inputList, settings) => {
 
     const setEventListeners = (formElement, config) => {
     const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
-    const buttonElement = formElement.querySelector(config.submitButtonSelector) || formElement.querySelector(".modal__delete-button");
+    const buttonElement = formElement.querySelector(config.submitButtonSelector);
 
     toggleButtonState(inputList, buttonElement, config);
   

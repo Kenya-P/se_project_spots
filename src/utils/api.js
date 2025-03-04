@@ -6,8 +6,8 @@ class Api {
 
     getAppInfo() {
       return Promise.all([
-            this.getUserInfo(),  // Fetch user information
-            this.getInitialCards()   // Fetch all cards
+            this.getUserInfo(),
+            this.getInitialCards()
           ]);
       }
       

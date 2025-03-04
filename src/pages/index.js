@@ -123,8 +123,11 @@ function getCardElement(data) {
         previewModalCaptionElement.textContent = data.name;
     });
 
-    cardLikeButton.addEventListener("click", (evt) => handleLikeCard(evt, data._id, data.isLiked));
-
+    cardLikeButton.addEventListener("click", (evt) => {
+      handleLikeCard(evt, data._id, data.isLiked);
+      data.isLiked = !data.isLiked;
+    });
+    
     cardDeleteButton.addEventListener("click", () => handleDeleteCard(cardElement, data._id));
 
     return cardElement;
@@ -143,15 +146,20 @@ function closeModal (modal) {
 }
 
 function handleLikeCard(evt, cardId, isLiked) {
-
+  const likeButton = evt.target;
   const newLikeState = !isLiked;
 
   api.updateLikeCard(cardId, newLikeState)
-    .then((updateCard) => {
-      evt.target.classList.toggle("card__like-button_liked", updateCard.isLiked);
+    .then((updatedCard) => {
+      if (updatedCard.isLiked) {
+        likeButton.classList.add("card__like-button_liked");
+      } else {
+        likeButton.classList.remove("card__like-button_liked");
+      }
     })
     .catch(console.error);
 }
+
 
 function handleProfileFormSubmit(evt) {
     evt.preventDefault();
@@ -240,7 +248,8 @@ function handleDeleteSubmit(evt) {
     .finally(() => {
       setButtonText(submitButton, false, "Deleting...", "Delete");
     });
-}
+
+  }
 
 function handleDeleteCard(cardElement, cardId) {
   selectedCard = cardElement;
@@ -254,7 +263,6 @@ function handleDeleteCard(cardElement, cardId) {
   cancelButton.addEventListener("click", () => {
       closeModal(cardDeleteModal);
   });
-
 
 }
 
