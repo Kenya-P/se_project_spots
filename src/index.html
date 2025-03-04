@@ -6,27 +6,39 @@
     <meta name="author" content="Kenya Peterson"/>
     <meta name="description" content="Spots"/>
     <meta name="keywords" content="..."/>
-    <link rel="stylesheet" href="./pages/index.css"/>
-    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="./favicon.ico" type="image/x-icon"/>
     <title>Spots</title>
 </head>
 <body>
    <div class="page">
     <header class="header">
-        <img src="./images/logo.svg" alt="Spots Logo" class="header__logo">
+        <img id="spots-logo" alt="Spots Logo" class="header__logo">
     </header>
     <main class="content">
         <section class="profile page__section">
-            <img src="./images/avatar.jpg" alt="Profile Image" class="profile__avatar">
+            <div class="profile__avatar-container">
+            <button type="button" class="profile__avatar-button">
+                <img 
+                id="avatar-button" 
+                src="<%= require('./images/pencil-light.svg') %>"
+                class="profile__pencil-icon" 
+                alt="Avatar Pencil icon">
+            </button>
+            <img 
+            id="spots-avatar" 
+            alt="Profile Image" 
+            class="profile__avatar">
+            </div>
+
             <div class="profile__column">
                 <h1 class="profile__name">Bessie Coleman</h1>
                 <p class="profile__description">Civil Aviator</p>
                 <button type="button" class="profile__edit-button">
-                    <img src="./images/pencil.svg" alt="Pencil icon" class="profile__edit-button-icon">Edit Profile
+                    <img id="spots-pencil" alt="Pencil icon" class="profile__edit-button-icon">Edit Profile
                 </button>
             </div>
             <button type="button" class="profile__add-button">
-                <img src="./images/add.svg" alt="Add icon"> New Post
+                <img id="spots-add" alt="Add icon"> New Post
             </button>
         </section>
         <section class="cards page__section">
@@ -122,17 +134,47 @@
         </div>
     </div>
    </div> 
-        <div class="modal" id="preview-modal">
-            <div class="modal__content modal__content_type_preview">
-                <button type="button" class="modal__close-button modal__close-button_preview"></button>
-                <img 
-                class="modal__image"
-                src="" 
-                alt="" />
-                <p class="modal__caption"></p>
+    <div class="modal" id="preview-modal">
+        <div class="modal__content modal__content_type_preview">
+            <button type="button" class="modal__close-button modal__close-button_preview"></button>
+            <img 
+            class="modal__image"
+            src="" 
+            alt="" />
+            <p class="modal__caption"></p>
+        </div>
+    </div>
+        <div class="modal" id="avatar-modal">
+            <div class="modal__container">
+                <button class="modal__close-button"></button>
+                <h3 class="modal__title">Avatar Image</h3>
+                <form name="add-avatar-modal" id="edit-avatar-form" class="modal__form" novalidate>
+                    <label class="modal__label" for="profile-avatar-input">
+                        Avatar
+                        <input 
+                        name="avatar"
+                        id="profile-avatar-input" 
+                        type="url" 
+                        class="modal__input" 
+                        placeholder="Avatar link" 
+                        required>
+                        <span id="profile-avatar-input-error" class="modal__error"></span>
+                    </label>
+                    <button type="submit" class="modal__submit-button">Save</button>
+                </form>
             </div>
         </div>
-        <script defer src="./scripts/index.js"></script>
-        <script defer src="./scripts/validation.js"></script>
+        <div class="modal" id="delete-modal">
+            <div class="modal__container">
+                <button class="modal__close-button modal__close-button_delete"></button>
+                <h3 class="modal__title">Are you sure you want to delete this image?</h3>
+                <form name="delete-modal" id="delete-form" class="modal__form" novalidate>
+                    <div class="modal__options">
+                        <button type="submit" class="modal__delete-button">Delete</button>
+                        <button type="button" class="modal__cancel-button">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </body>
 </html>
